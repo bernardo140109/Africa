@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+:root {
+    --primary-color: #8B4513; /* Marrom Sela */
+    --secondary-color: #FFA500; /* Laranja */
+    --accent-color: #556B2F; /* Verde Oliva Escuro */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --background-color: #FDF5E6; /* Old Lace - um bege claro */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Lora', serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* overflow-x: hidden; already added to html, body selector */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* overflow-x: hidden; already added to html, body selector */
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: var(--font-secondary);
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.hamburger-menu {
+    display: none; /* Escondido em telas maiores */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Acima da navbar */
+    color: var(--light-text-color); /* Cor do ícone Lucide */
+}
+
+/* Remove estilos antigos das barras, já que estamos usando Lucide */
+.hamburger-menu svg { /* Lucide usa SVG */
+    width: 28px; /* Ajuste o tamanho conforme necessário */
+    height: 28px;
+}
+
+
+
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links li a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--secondary-color);
+}
+
+.hero-section.fundo-1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/elefantes.webp') no-repeat center center/cover;
+    color: var(--light-text-color);
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    margin: 0; /* Reset margin */
+    width: 100%; /* Full width */
+    border-radius: 0; /* No border radius for full width */
+    border: none; /* No border */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.titulo-1 {
+    font-family: var(--font-secondary);
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: var(--light-text-color); /* Ensure white text */
+}
+
+.subtitulo {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+    font-weight: 300;
+}
+
+.content-section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    position: relative;
+    display: inline-block;
+}
+
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 10px auto 0;
+}
+
+.content-section p {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+
+.alternate-bg {
+    background-color: #fff;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    background-color: var(--background-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(33.333% - 40px); /* Adjust for gap */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.gallery-item {
+  display: flex; /* Adicionado para alinhar conteúdo interno */
+  flex-direction: column; /* Adicionado para alinhar conteúdo interno */
+  /* min-height: 400px;  Você pode descomentar e ajustar se quiser uma altura mínima fixa para os cards */
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    height: 200px; /* Altura fixa para todas as imagens da galeria */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner do card */
+}
+
+.gallery-item .text-content {
+  flex-grow: 1; /* Permite que esta div ocupe o espaço restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empurra o texto para baixo se houver espaço extra */
+}
+
+.gallery-item h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.5em;
+    color: var(--accent-color);
+    margin-bottom: 0.5em;
+}
+
+.gallery-item p {
+    font-size: 0.95em;
+    text-align: center;
+}
+
+.contact-form-section {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    padding-bottom: 80px;
+}
+
+.contact-form-section h2 {
+    color: var(--light-text-color);
+}
+
+.contact-form-section h2::after {
+    background-color: var(--secondary-color);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto 0;
+    background-color: var(--background-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.btn-submit {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 0; /* Ensure no gap if previous section has margin-bottom */
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Mostra o hamburguer em telas menores */
+    }
+
+    .navbar {
+        justify-content: space-between; /* Mantém logo e hamburguer nas extremidades */
+        align-items: center;
+    }
+
+    .nav-links {
+        display: none; /* Esconde os links por padrão em telas menores */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 70px; /* Altura aproximada da navbar */
+        left: 0;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--secondary-color); 
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra os links quando o menu hamburguer está ativo */
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        padding: 10px 0;
+        display: block;
+        width: 100%;
+    }
+
+    .titulo-1 {
+        font-size: 2.5em;
+    }
+
+    .subtitulo {
+        font-size: 1.2em;
+    }
+
+    .gallery-item {
+        width: calc(50% - 30px);
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: calc(100% - 22px);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5em;
+    }
+    .titulo-1 {
+        font-size: 2em;
+    }
+
+    .subtitulo {
+        font-size: 1em;
+    }
+
+    .content-section h2 {
+        font-size: 2em;
+    }
+
+    .gallery-item {
+        width: calc(100% - 20px);
+    }
+}
+
+
+/* Estilos para os ícones Lucide na galeria de cultura */
+.cultura-gallery .gallery-item [data-lucide="music"],
+.cultura-gallery .gallery-item [data-lucide="palette"],
+.cultura-gallery .gallery-item [data-lucide="chef-hat"] {
+    width: 48px;
+    height: 48px;
+    stroke-width: 2;
+    margin-bottom: 10px;
+    align-self: center; /* Adicionado para centralizar o ícone */
+}
+
+.cultura-gallery .gallery-item [data-lucide="music"] {
+    color: var(--secondary-color);
+}
+
+.cultura-gallery .gallery-item [data-lucide="palette"] {
+    color: var(--primary-color);
+}
+
+.cultura-gallery .gallery-item [data-lucide="chef-hat"] {
+    color: var(--accent-color);
+}
+
+/* Ajustes para garantir que o contêiner do texto dentro do gallery-item permita o alinhamento */
+.cultura-gallery .gallery-item .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza todo o conteúdo do texto, incluindo o ícone */
+    flex-grow: 1;
+}
+
