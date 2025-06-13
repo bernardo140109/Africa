@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="new.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Africa</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">África Fascinante</div>
+            <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false">
+                <i data-lucide="menu"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cultura">Cultura</a></li>
+                <li><a href="#geografia">Geografia</a></li>
+                <li><a href="#vida-selvagem">Vida Selvagem</a></li>
+                <li><a href="#aluno">Aluno</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero-section fundo-1">
+        <div class="hero-content">
+            <h1 class="titulo-1">Descubra a África</h1>
+            <p class="subtitulo">Um continente de rica diversidade cultural, paisagens deslumbrantes e vida selvagem incomparável.</p>
+        </div>
+    </section>
+
+    <main>
+        <section id="introducao" class="content-section">
+            <h2>Bem-vindo à Jornada Africana</h2>
+            <p>A África é um continente vasto e diversificado, berço da humanidade e lar de uma incrível variedade de culturas, ecossistemas e histórias. Explore conosco as maravilhas que este continente tem a oferecer.</p>
+        </section>
+
+        <section id="cultura" class="content-section alternate-bg">
+            <h2>Cultura Vibrante</h2>
+            <div class="gallery cultura-gallery">
+                <div class="gallery-item">
+                    <div class="text-content">
+                        <i data-lucide="music"></i>
+                        <h3>Música e Dança</h3>
+                        <p>Ritmos contagiantes e danças expressivas que contam histórias ancestrais.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="text-content">
+                        <i data-lucide="palette"></i>
+                        <h3>Arte e Artesanato</h3>
+                        <p>Máscaras, esculturas e tecidos que refletem a rica herança cultural.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="text-content">
+                        <i data-lucide="chef-hat"></i>
+                        <h3>Culinária Diversificada</h3>
+                        <p>Sabores exóticos e pratos tradicionais que deliciam o paladar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="geografia" class="content-section">
+            <h2>Paisagens Deslumbrantes</h2>
+            <p>Desde as vastas savanas e desertos áridos até florestas tropicais exuberantes e montanhas imponentes, a geografia da África é de tirar o fôlego.</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="/images/pexels-eva-purrer-1937326549-28830787.jpg" alt="Savana Africana">
+                    <h3>Savanas</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/pexels-mohamedelaminemsiouri-2100387.jpg" alt="Deserto do Saara">
+                    <h3>Desertos</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="/images/La_rivière_Lulilaka,_parc_national_de_Salonga,_2005.jpg" alt="Florestas Tropicais">
+                    <h3>Florestas Tropicais</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="vida-selvagem" class="content-section alternate-bg">
+            <h2>Vida Selvagem Incrível</h2>
+            <p>A África é o lar dos "Big Five" e de uma miríade de outras espécies fascinantes. Safáris oferecem a oportunidade de ver esses animais em seu habitat natural.</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="/images/leao.jpg" alt="Leão Africano">
+                    <h3>Leões</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/elefante africano.jpg" alt="Elefante Africano">
+                    <h3>Elefantes</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="/images/girafas.webp" alt="Girafa">
+                    <h3>Girafas</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="aluno" class="content-section contact-form-section">
+            <h2>Trabalho realizado por Vicente</h2>
+            <p>Este trabalho foi desenvolvido por Vicente, um estudante da Escola Estadual de Ensino Fundamental Paraíba CIEP</p>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Descubra a África. Todos os direitos reservados.</p>
+        <p>Um projeto para apresentar as maravilhas do continente africano.</p>
+    </footer>
+
+    <script>
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+            const isExpanded = hamburgerMenu.getAttribute('aria-expanded') === 'true' || false;
+            hamburgerMenu.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+            // Alternar a aparência do ícone do hamburguer para 'X'
+            hamburgerMenu.classList.toggle('active');
+            // Alternar entre ícone de menu e 'X'
+            const icon = hamburgerMenu.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons(); // Atualizar o ícone
+        });
+
+        // Fechar o menu ao clicar em um link (para navegação em página única)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('active');
+                    hamburgerMenu.classList.remove('active');
+                    // Resetar ícone para menu
+                    const icon = hamburgerMenu.querySelector('i');
+                    icon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons(); // Atualizar o ícone
+                }
+            });
+        });
+
+        // Renderizar ícones Lucide inicialmente
+        lucide.createIcons();
+    </script>
+</body>
+</html>
